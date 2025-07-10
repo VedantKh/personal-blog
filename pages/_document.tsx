@@ -24,32 +24,7 @@ export default class MyDocument extends Document {
                 __html: `
 /** Inlined version of noflash.js from use-dark-mode */
 ;(function () {
-  var storageKey = 'darkMode'
-  var classNameDark = 'dark-mode'
-  var classNameLight = 'light-mode'
-  function setClassOnDocumentBody(darkMode) {
-    document.body.classList.add(darkMode ? classNameDark : classNameLight)
-    document.body.classList.remove(darkMode ? classNameLight : classNameDark)
-  }
-  var preferDarkQuery = '(prefers-color-scheme: dark)'
-  var mql = window.matchMedia(preferDarkQuery)
-  var supportsColorSchemeQuery = mql.media === preferDarkQuery
-  var localStorageTheme = null
-  try {
-    localStorageTheme = localStorage.getItem(storageKey)
-  } catch (err) {}
-  var localStorageExists = localStorageTheme !== null
-  if (localStorageExists) {
-    localStorageTheme = JSON.parse(localStorageTheme)
-  }
-  // Determine the source of truth
-  if (localStorageExists) {
-    // source of truth from localStorage
-    setClassOnDocumentBody(localStorageTheme)
-  } else {
-    // Always default to light mode
-    setClassOnDocumentBody(false)
-  }
+  document.body.classList.add('light-mode');
 })();
 `
               }}
